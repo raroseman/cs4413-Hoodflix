@@ -1,0 +1,50 @@
+<?php
+
+class ProfileView {
+
+  public static function show() {  
+		
+?>
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Profile</title>
+	</head>
+	<body>
+		<section>
+			<h1>Welcome, Thugnificent!</h1>
+			<img alt="Thugnificent" src="images/thugnificent.jpg" style="">	
+		</section>
+		
+		<section>
+			<h2>Personal Details</h2>
+			   Name: Otis Jenkins<br>
+			   Age: 24<br>
+			   Gender: Male<br>
+			   Height: 6' 3"<br>
+			   Eyes: Brown<br>
+			   Address: 808 Thug Lane<br>
+			   Neighborhood: Woodcrest<br>
+		</section>
+		
+		<section>	  
+			   <h3>fliX of Interest</h3>
+			   Action, Drama, Comedy<br>
+			   <h3>About Me</h3>
+			   Hi everyone! My name is Otis and while I'm not working on my rap career I love to take long strolls through the park
+			   and pursuing my true passion of baking!<br>
+		</section>
+		
+		<section>
+			   <h2>Contact Information</h2>
+			   E: mrthugnasty@gmail.com<br>
+			   P: (410) 169-1337<br>
+			   FB: https://www.facebook.com/otis.jenkins<br><br>
+		</section>
+	</body>
+	</html>
+<?php
+	}
+}		
+?>
