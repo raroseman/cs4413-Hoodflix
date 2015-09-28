@@ -13,10 +13,10 @@ class IndexView {
 	</head>
 	<body>
 	<nav>
-	<a href=./SignupView.class::show()>Sign-up</a> |
-	<a href="/rr_lab1/login.html">Login</a> |
-	<a href="/rr_lab1/reviews.html">Reviews</a> |
-	<a href="/rr_lab1/report.html">Report Misconduct</a>
+	<a href="signup">Sign-up</a> |
+	<a href="login">Login</a> |
+	<a href="reviews">Reviews</a> |
+	<a href="report">Report Misconduct</a>
 	</nav>
 	
 	<header>

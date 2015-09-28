@@ -11,10 +11,13 @@
 		$control = $urlPieces[2];
 	
 	switch ($control) {
-		case "login": 
+		case "signup": 
+			SignupController::run();
+			break;
+		case "login":
 			LoginController::run();
 			break;
 		default:
-			HomeView::show();
+			IndexView::show();
 	};
 ?>	
