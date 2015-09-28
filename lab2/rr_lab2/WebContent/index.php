@@ -18,6 +18,6 @@
 			LoginController::run();
 			break;
 		default:
-			IndexView::show();
+			HomeView::show();
 	};
 ?>	

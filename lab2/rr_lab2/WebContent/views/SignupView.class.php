@@ -13,10 +13,10 @@ class SignupView {
 <title>Sign-Up</title>
 </head>
 <body>
-	<form action="simple-echo.php" method="post">
+	<form action="signup" method="post">
 		<section>
 			<h1>Account Information</h1>
-				Username <input type="text" name="username" tabindex="1"><br><br>
+				Username <input type="text" name="userName" tabindex="1"><br><br>
 				Password <input type="password" name="password" tabindex="2"><br><br>
 				Confirm Password <input type="password" name="password" tabindex="3"><br><br>			
 				Picture <input type="file" name="file" tabindex="4"><br><br>
@@ -84,7 +84,6 @@ class SignupView {
 
 <?php
 
-echo "I'm the home page";
   }
 }
 

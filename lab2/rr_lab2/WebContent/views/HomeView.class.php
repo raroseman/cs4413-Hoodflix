@@ -1,6 +1,6 @@
 <?php
 
-class IndexView {
+class HomeView {
 
   public static function show() {  
 		

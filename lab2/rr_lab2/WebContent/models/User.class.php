@@ -64,8 +64,10 @@ class User {
 		$errors = array();
 		if (is_null($this->formInput))
 			$this->initializeEmpty();
-		else  	 
+		else { 	 
 		   $this->validateUserName();
+		   $this->validatePassword();
+		}
 	}
 
 	private function initializeEmpty() {
@@ -77,13 +79,20 @@ class User {
 	private function validateUserName() {
 		// Username should only contain letters, numbers, dashes and underscore
 		$this->userName = $this->extractForm('userName');
-		if (empty($this->userName))
+		if (empty($this->userName)) 
 			$this->setError('userName', 'USER_NAME_EMPTY');
 		elseif (!filter_var($this->userName, FILTER_VALIDATE_REGEXP,
 			array("options"=>array("regexp" =>"/^([a-zA-Z0-9\-\_])+$/i")) )) {
-			$this->setError('userName', 'LAST_NAME_HAS_INVALID_CHARS');
-			$this->errorCount ++;
+			$this->setError('userName', 'USER_NAME_HAS_INVALID_CHARS');
 		}
+	}	
+	
+	private function validatePassword() {
+		$this->password = $this->extractForm('password');
+		if (empty($this->password))
+			$this->setError('password', 'PASS_WORD_EMPTY');
+		elseif (strlen($this->password) < 8)
+		$this->setError('password', 'PASS_WORD_TOO_SHORT');
 	}	
 }
 ?>

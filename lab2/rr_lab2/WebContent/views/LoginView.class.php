@@ -2,7 +2,7 @@
 
 class LoginView {
 
-  public static function show() {  
+  public static function show( $user ) {  
 		
 ?>
 
@@ -13,11 +13,11 @@ class LoginView {
 	<title>Login</title>
 	</head>
 	<body>
-		<form>
+		<form action="login" method="post">
 			<section>
 				<h1>Login</h1>
-					Username <input type="text" name="username"><br><br>
-					Password <input type="password" name="password"><br><br>
+					Username <input type="text" name="userName" > <?php if (!is_null($user)) {echo $user->getError('userName');}?><br><br>
+					Password <input type="password" name="password"> <?php if (!is_null($user)) {echo $user->getError('password');}?><br><br>
 			</section>
 				
 			<input type="submit" name="submit"><br>
