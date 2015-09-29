@@ -1,10 +1,12 @@
 <?php
-include ("Messages.class.php");
+// include_once("Messages.class.php");
 class User {
 	private $errorCount;
 	private $errors;
 	private $formInput;
 	private $userName;
+	private $password;
+	private $confirm;
 	
 	public function __construct($formInput = null) {
 		$this->formInput = $formInput;
@@ -67,6 +69,7 @@ class User {
 		else { 	 
 		   $this->validateUserName();
 		   $this->validatePassword();
+		   $this->validatePasswordsMatch();
 		}
 	}
 
@@ -93,6 +96,15 @@ class User {
 			$this->setError('password', 'PASS_WORD_EMPTY');
 		elseif (strlen($this->password) < 8)
 		$this->setError('password', 'PASS_WORD_TOO_SHORT');
-	}	
+	}
+	
+	private function validatePasswordsMatch() {
+		$this->password = $this->extractForm('password');
+		$this->confirm = $this->extractForm('confirm');
+		if (empty($this->confirm))
+			$this->setError('confirm', 'CONFIRM_PASS_WORD_EMPTY');
+		elseif (strcmp($this->password, $this->confirm) != 0)
+			$this->setError('confirm', 'CONFIRM_PASS_WORD_DOES_NOT_MATCH');
+	}
 }
 ?>

@@ -2,7 +2,7 @@
 
 class SignupView {
 
-  public static function show() {  
+  public static function show( $user, $userData ) {  
 		
 ?>
 
@@ -16,33 +16,28 @@ class SignupView {
 	<form action="signup" method="post">
 		<section>
 			<h1>Account Information</h1>
-				Username <input type="text" name="userName" tabindex="1"><br><br>
-				Password <input type="password" name="password" tabindex="2"><br><br>
-				Confirm Password <input type="password" name="password" tabindex="3"><br><br>			
-				Picture <input type="file" name="file" tabindex="4"><br><br>
+				Username <input type="text" name="userName" tabindex="1"> <?php if (!is_null($user)) {echo $user->getError('userName');}?><br><br>
+				Password <input type="password" name="password" tabindex="2"> <?php if (!is_null($user)) {echo $user->getError('password');}?><br><br>
+				Confirm Password <input type="password" name="confirm" tabindex="3"> <?php if (!is_null($user)) {echo $user->getError('confirm');}?><br><br> 			
+				Picture <input type="file" name="picture" tabindex="4"> <?php if (!is_null($user)) {echo $userData->getError('picture');}?><br><br>
 				<fieldset>
-  					<legend>Genres of Interest</legend>
+  					<legend>Genres of Interest</legend> 
   					Action <input type="checkbox" name="action" tabindex="5">
   					Horror <input type="checkbox" name="horror" tabindex="6">
-  					Comedy <input type="checkbox" name="horror" tabindex="7"><br>
-  					Romance<input type="checkbox" name="horror" tabindex="8">
-  					Family <input type="checkbox" name="horror" tabindex="9">
-  					Drama  <input type="checkbox" name="horror" tabindex="10">
+  					Comedy <input type="checkbox" name="comedy" tabindex="7"><br>
+  					Romance<input type="checkbox" name="romance" tabindex="8">
+  					Family <input type="checkbox" name="family" tabindex="9">
+  					Drama  <input type="checkbox" name="drama" tabindex="10">
  				</fieldset><br>
- 				Display Contact Information? <input list="display_information">
-  				<datalist id="display_information" tabindex="11">
-    				<option value="Yes">Yes</option>
-    				<option value="No">No</option>
-  				</datalist><br><br>
 		</section>
 		
 		<section>
 			<h1>Personal Information</h1>
-				First Name <input type="text" name="firstname" tabindex="12"><br><br>
-				Last Name <input type="text" name="lastname" tabindex="13"><br><br>
-				Address <input type="text" name="address" tabindex="14"><br><br>
-				Neighborhood <input type="text" name="neighborhood" tabindex="15"><br><br>
-				Date of Birth <input type="month" name="dateofbirth" tabindex="16"><br><br>
+				First Name <input type="text" name="firstName" tabindex="12"> <?php if (!is_null($user)) {echo $userData->getError('firstName');}?><br><br>
+				Last Name <input type="text" name="lastName" tabindex="13"> <?php if (!is_null($user)) {echo $userData->getError('lastName');}?><br><br>
+				Address <input type="text" name="address" tabindex="14"> <?php if (!is_null($user)) {echo $userData->getError('address');}?><br><br>
+				Neighborhood <input type="text" name="neighborhood" tabindex="15"> <?php if (!is_null($user)) {echo $userData->getError('neighborhood');}?><br><br>
+				Date of Birth <input type="month" name="dateofbirth" tabindex="16"> <?php if (!is_null($user)) {echo $userData->getError('dateofbirth');}?><br><br>
 				Height <select name="height" tabindex="17">
     				   	   <option value="none">---</option>
     				       <option value="above">Above 6' 5"</option>    				 
@@ -62,19 +57,18 @@ class SignupView {
     				       <option value="below">Below 5' 5"</option>
  				</select><br><br>
 				Eye Color <input type="color" name="color" tabindex="18"><br><br>
-				<fieldset>
-  					<legend>Gender</legend>
-  					Male <input type="radio" name="gender" value="male" tabindex="19">
-  					Female <input type="radio" name="gender" value="female" tabindex="20">
+				<?php if (!is_null($user)) {echo $userData->getError('gender').'<br>';}?> <fieldset>
+  					Male <input type="radio" name="male" value="male" tabindex="19">
+  					Female <input type="radio" name="female" value="female" tabindex="20">
  				</fieldset><br>
 				About Me <br><br><textarea name="message" rows="10" cols="30" tabindex="21"></textarea><br><br>
 		</section>
 		
 		<section>
 			<h1>Contact Information</h1>
-				Email <input type="email" name="email" tabindex="22"><br><br>
-				Phone <input type="tel" name="phone" tabindex="23"><br><br>
-				Facebook <input type="url" name="url" tabindex="24"><br><br>
+				Email <input type="text" name="email" tabindex="22"> <?php if (!is_null($user)) {echo $userData->getError('email');}?><br><br>
+				Phone <input type="text" name="phone" tabindex="23"> <?php if (!is_null($user)) {echo $userData->getError('phone');}?><br><br>
+				Facebook <input type="text" name="url" tabindex="24"> <?php if (!is_null($user)) {echo $userData->getError('url');}?><br><br>
 		</section>
 		
 		<input type="submit" name="submit" tabindex="25"><br>
