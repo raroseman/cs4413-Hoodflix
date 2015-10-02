@@ -2,7 +2,7 @@
 
 class ReviewView {
 
-  public static function show( ) {  
+  public static function show( $reviewData ) {  
 		
 ?>
 

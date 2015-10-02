@@ -18,8 +18,8 @@
 			LoginController::run();
 			break;
 		case "reviews":
-				ReviewView::show();
-				break;
+			ReviewController::run();
+			break;
 		case "profile":
 			ProfileView::show();
 			break;

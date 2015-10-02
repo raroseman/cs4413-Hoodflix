@@ -37,7 +37,7 @@ class SignupView {
 				Last Name <input type="text" name="lastName" <?php if (!is_null($userData)) { echo 'value = "'. $userData->getLastName() .'"'; }?> tabindex="13"> <?php if (!is_null($user)) {echo $userData->getError('lastName');}?><br><br>
 				Address <input type="text" name="address" <?php if (!is_null($userData)) { echo 'value = "'. $userData->getAddress() .'"'; }?> tabindex="14"> <?php if (!is_null($user)) {echo $userData->getError('address');}?><br><br>
 				Neighborhood <input type="text" name="neighborhood" <?php if (!is_null($userData)) { echo 'value = "'. $userData->getNeighborhood() .'"'; }?> tabindex="15"> <?php if (!is_null($user)) {echo $userData->getError('neighborhood');}?><br><br>
-				Date of Birth <input type="month" name="dateofbirth" tabindex="16"> <?php if (!is_null($user)) {echo $userData->getError('dateofbirth');}?> <?php if (!is_null($user)) {echo $userData->getError('dateOfBirth');}?><br><br>
+				Date of Birth <input type="month" name="dateofbirth" <?php if (!is_null($userData)) { echo 'value = "'. $userData->getDateOfBirth() .'"'; }?> tabindex="16"> <?php if (!is_null($user)) {echo $userData->getError('dateOfBirth');}?><br><br>
 				Height <select name="height" tabindex="17">
     				   	   <option value="none">---</option>
     				       <option value="above">Above 6' 5"</option>    				 

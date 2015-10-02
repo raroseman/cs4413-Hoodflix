@@ -69,6 +69,10 @@ class UserData {
 		return $this->neighborhood;
 	}
 	
+	public function getDateOfBirth() {
+		return $this->dateOfBirth;
+	}
+	
 	public function getAboutMe() {
 		return $this->aboutMe;
 	}

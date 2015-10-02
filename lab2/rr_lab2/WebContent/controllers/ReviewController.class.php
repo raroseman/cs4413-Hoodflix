@@ -2,15 +2,14 @@
 class ReviewController {
 	public static function run() {
 		if ($_SERVER ["REQUEST_METHOD"] == "POST") {
-			$user = new User ( $_POST );
-			$userData = new UserData( $_POST );
-			if ($user->getErrorCount() == 0 && $userData->getErrorCount() == 0) {
+			$reviewData = new ReviewData( $_POST );
+			if ($reviewData->getErrorCount() == 0) {
 				HomeView::show();
 			} else {
-				ReviewView::show( $user, $userData );
+				ReviewView::show( $reviewData );
 			}
 		} else {
-			ReviewView::show( null, null );	
+			ReviewView::show( null );	
 		}
 	}
 }

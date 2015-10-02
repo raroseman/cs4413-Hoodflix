@@ -42,6 +42,7 @@ class ProfileView {
 			   P: (410) 169-1337<br>
 			   FB: https://www.facebook.com/otis.jenkins<br><br>
 		</section>
+		<a href="home">Home</a>
 	</body>
 	</html>
 <?php

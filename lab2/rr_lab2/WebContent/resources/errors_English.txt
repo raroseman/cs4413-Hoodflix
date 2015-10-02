@@ -23,3 +23,6 @@ PHONE_EMPTY Your phone number can not be empty or only contain white space
 PHONE_HAS_INVALID_FORMAT Your phone must be in the format (xxx) xxx - xxxx
 URL_EMPTY Your facebook URL can not be empty or only contain white space
 URL_HAS_INVALID_FORMAT Your url must contain http:// or https://, followed by alphanumeric, followed by .com
+MOVIE_TITLE_EMPTY Your movie title can not be empty or only contain white space
+REVIEWED_ON_EMPTY Your reviewed date can not be empty or only contain white space
+REVIEW_EMPTY Your review can not be empty or only contain white space
