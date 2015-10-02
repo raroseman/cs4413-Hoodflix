@@ -1,5 +1,5 @@
 <?php
-// include_once("Messages.class.php");
+include_once("Messages.class.php");
 class User {
 	private $errorCount;
 	private $errors;
@@ -37,6 +37,14 @@ class User {
 
 	public function getUserName() {
 		return $this->userName;
+	}
+	
+	public function getPassword() {
+		return $this->password;
+	}
+	
+	public function getConfirm() {
+		return $this->confirm;
 	}
 	
 	public function getParameters() {

@@ -1,5 +1,5 @@
 <?php
-class SignupController {
+class ReviewController {
 	public static function run() {
 		if ($_SERVER ["REQUEST_METHOD"] == "POST") {
 			$user = new User ( $_POST );
@@ -7,10 +7,10 @@ class SignupController {
 			if ($user->getErrorCount() == 0 && $userData->getErrorCount() == 0) {
 				HomeView::show();
 			} else {
-				SignupView::show( $user, $userData );
+				ReviewView::show( $user, $userData );
 			}
 		} else {
-			SignupView::show( null, null );	
+			ReviewView::show( null, null );	
 		}
 	}
 }

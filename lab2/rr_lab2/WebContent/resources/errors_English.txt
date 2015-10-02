@@ -15,6 +15,11 @@ ADDRESS_HAS_INVALID_FORMAT Your address must contain numbers, followed by a whit
 NEIGHBORHOOD_NAME_EMPTY Your neighborhood can not be empty or only contain white space
 NEIGHBORHOOD_HAS_INVALID_CHARS Your neighborhood contains invalid characters
 GENDER_NOT_SET You must select a gender
+DATE_OF_BIRTH_NOT_SET You must select a date of birth
+ABOUT_ME_EMPTY Your about me section can not be empty or only contain white space
+EMAIL_EMPTY Your email can not be empty or only contain white space
 EMAIL_HAS_INVALID_FORMAT Your email must contain alphanumeric, followed by an @ sign, followed by letters, followed by .com
+PHONE_EMPTY Your phone number can not be empty or only contain white space
 PHONE_HAS_INVALID_FORMAT Your phone must be in the format (xxx) xxx - xxxx
+URL_EMPTY Your facebook URL can not be empty or only contain white space
 URL_HAS_INVALID_FORMAT Your url must contain http:// or https://, followed by alphanumeric, followed by .com

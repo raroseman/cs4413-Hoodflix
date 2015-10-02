@@ -17,6 +17,12 @@
 		case "login":
 			LoginController::run();
 			break;
+		case "reviews":
+				ReviewView::show();
+				break;
+		case "profile":
+			ProfileView::show();
+			break;
 		default:
 			HomeView::show();
 	};

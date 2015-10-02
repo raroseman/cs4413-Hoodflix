@@ -16,10 +16,10 @@ class SignupView {
 	<form action="signup" method="post">
 		<section>
 			<h1>Account Information</h1>
-				Username <input type="text" name="userName" tabindex="1"> <?php if (!is_null($user)) {echo $user->getError('userName');}?><br><br>
-				Password <input type="password" name="password" tabindex="2"> <?php if (!is_null($user)) {echo $user->getError('password');}?><br><br>
-				Confirm Password <input type="password" name="confirm" tabindex="3"> <?php if (!is_null($user)) {echo $user->getError('confirm');}?><br><br> 			
-				Picture <input type="file" name="picture" tabindex="4"> <?php if (!is_null($user)) {echo $userData->getError('picture');}?><br><br>
+				Username <input type="text" name="userName" <?php if (!is_null($user)) { echo 'value = "'. $user->getUserName() .'"'; }?> tabindex="1"> <?php if (!is_null($user)) {echo $user->getError('userName');}?><br><br>
+				Password <input type="password" name="password" <?php if (!is_null($user)) { echo 'value = "'. $user->getPassword() .'"'; }?> tabindex="2"> <?php if (!is_null($user)) {echo $user->getError('password');}?><br><br>
+				Confirm Password <input type="password" name="confirm" <?php if (!is_null($user)) { echo 'value = "'. $user->getConfirm() .'"'; }?> tabindex="3"> <?php if (!is_null($user)) {echo $user->getError('confirm');}?><br><br> 			
+				Picture <input type="file" name="picture" <?php if (!is_null($userData)) { echo 'value = "'. $userData->getPicture() .'"'; }?> tabindex="4"> <?php if (!is_null($user)) {echo $userData->getError('picture');}?><br><br>
 				<fieldset>
   					<legend>Genres of Interest</legend> 
   					Action <input type="checkbox" name="action" tabindex="5">
@@ -33,11 +33,11 @@ class SignupView {
 		
 		<section>
 			<h1>Personal Information</h1>
-				First Name <input type="text" name="firstName" tabindex="12"> <?php if (!is_null($user)) {echo $userData->getError('firstName');}?><br><br>
-				Last Name <input type="text" name="lastName" tabindex="13"> <?php if (!is_null($user)) {echo $userData->getError('lastName');}?><br><br>
-				Address <input type="text" name="address" tabindex="14"> <?php if (!is_null($user)) {echo $userData->getError('address');}?><br><br>
-				Neighborhood <input type="text" name="neighborhood" tabindex="15"> <?php if (!is_null($user)) {echo $userData->getError('neighborhood');}?><br><br>
-				Date of Birth <input type="month" name="dateofbirth" tabindex="16"> <?php if (!is_null($user)) {echo $userData->getError('dateofbirth');}?><br><br>
+				First Name <input type="text" name="firstName" <?php if (!is_null($userData)) { echo 'value = "'. $userData->getFirstName() .'"'; }?> tabindex="12"> <?php if (!is_null($user)) {echo $userData->getError('firstName');}?><br><br>
+				Last Name <input type="text" name="lastName" <?php if (!is_null($userData)) { echo 'value = "'. $userData->getLastName() .'"'; }?> tabindex="13"> <?php if (!is_null($user)) {echo $userData->getError('lastName');}?><br><br>
+				Address <input type="text" name="address" <?php if (!is_null($userData)) { echo 'value = "'. $userData->getAddress() .'"'; }?> tabindex="14"> <?php if (!is_null($user)) {echo $userData->getError('address');}?><br><br>
+				Neighborhood <input type="text" name="neighborhood" <?php if (!is_null($userData)) { echo 'value = "'. $userData->getNeighborhood() .'"'; }?> tabindex="15"> <?php if (!is_null($user)) {echo $userData->getError('neighborhood');}?><br><br>
+				Date of Birth <input type="month" name="dateofbirth" tabindex="16"> <?php if (!is_null($user)) {echo $userData->getError('dateofbirth');}?> <?php if (!is_null($user)) {echo $userData->getError('dateOfBirth');}?><br><br>
 				Height <select name="height" tabindex="17">
     				   	   <option value="none">---</option>
     				       <option value="above">Above 6' 5"</option>    				 
@@ -61,14 +61,14 @@ class SignupView {
   					Male <input type="radio" name="male" value="male" tabindex="19">
   					Female <input type="radio" name="female" value="female" tabindex="20">
  				</fieldset><br>
-				About Me <br><br><textarea name="message" rows="10" cols="30" tabindex="21"></textarea><br><br>
+				About Me <br><br><textarea name="message" rows="10" cols="30" <?php if (!is_null($userData)) { echo 'value = "'. $userData->getAboutMe() .'"'; }?> tabindex="21"></textarea> <?php if (!is_null($user)) {echo $userData->getError('aboutMe');}?><br><br>
 		</section>
 		
 		<section>
 			<h1>Contact Information</h1>
-				Email <input type="text" name="email" tabindex="22"> <?php if (!is_null($user)) {echo $userData->getError('email');}?><br><br>
-				Phone <input type="text" name="phone" tabindex="23"> <?php if (!is_null($user)) {echo $userData->getError('phone');}?><br><br>
-				Facebook <input type="text" name="url" tabindex="24"> <?php if (!is_null($user)) {echo $userData->getError('url');}?><br><br>
+				Email <input type="text" name="email" <?php if (!is_null($userData)) { echo 'value = "'. $userData->getEmail() .'"'; }?> tabindex="22"> <?php if (!is_null($user)) {echo $userData->getError('email');}?><br><br>
+				Phone <input type="text" name="phone" <?php if (!is_null($userData)) { echo 'value = "'. $userData->getPhone() .'"'; }?> tabindex="23"> <?php if (!is_null($user)) {echo $userData->getError('phone');}?><br><br>
+				Facebook <input type="text" name="url" <?php if (!is_null($userData)) { echo 'value = "'. $userData->getURL() .'"'; }?> tabindex="24"> <?php if (!is_null($user)) {echo $userData->getError('url');}?><br><br>
 		</section>
 		
 		<input type="submit" name="submit" tabindex="25"><br>

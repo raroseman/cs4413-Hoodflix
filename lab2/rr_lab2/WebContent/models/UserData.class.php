@@ -6,11 +6,14 @@ class UserData {
 	private $formInput;
 	private $userName;
 	private $picture;
+	private $firstName;
 	private $lastName;
 	private $address;
 	private $neighborhood;
 	private $male;
 	private $female;
+	private $dateOfBirth;
+	private $aboutMe;
 	private $email;
 	private $phone;
 	private $url;
@@ -44,6 +47,42 @@ class UserData {
 
 	public function getUserName() {
 		return $this->userName;
+	}
+	
+	public function getFirstName() {
+		return $this->firstName;
+	}
+	
+	public function getLastName() {
+		return $this->lastName;
+	}
+	
+	public function getAddress() {
+		return $this->address;
+	}
+	
+	public function getPicture() {
+		return $this->picture;
+	}
+	
+	public function getNeighborhood() {
+		return $this->neighborhood;
+	}
+	
+	public function getAboutMe() {
+		return $this->aboutMe;
+	}
+	
+	public function getEmail() {
+		return $this->email;
+	}	
+	
+	public function getPhone() {
+		return $this->phone;
+	}
+	
+	public function getURL() {
+		return $this->url;
 	}
 	
 	public function getParameters() {
@@ -80,6 +119,8 @@ class UserData {
 		   $this->validateAddress();
 		   $this->validateNeighborhood();
 		   $this->validateGender();
+		   $this->validateDateOfBirth();
+		   $this->validateAboutMe();
 		   $this->validateEmail();
 		   $this->validatePhone();
 		   $this->validateURL();
@@ -145,10 +186,22 @@ class UserData {
 			$this->setError('gender', 'GENDER_NOT_SET');
 	}
 	
+	private function validateDateOfBirth() {
+		$this->dateOfBirth = $this->extractForm('dateOfBirth');
+		if (empty($this->dateOfBirth))
+			$this->setError('dateOfBirth', 'DATE_OF_BIRTH_NOT_SET');
+	}
+	
+	private function validateAboutMe() {
+		$this->aboutMe = $this->extractForm('aboutMe');
+		if (empty($this->aboutMe))
+			$this->setError('aboutMe', 'ABOUT_ME_EMPTY');
+	}
+	
 	private function validateEmail() {
 		$this->email = $this->extractForm('email');
 		if (empty($this->email))
-			return;
+			$this->setError('email', 'EMAIL_EMPTY');
 		elseif (!filter_var($this->email, FILTER_VALIDATE_REGEXP,
 			array("options"=>array("regexp" =>"/^[a-zA-Z0-9\-\_]+@[a-zA-Z]+\.com$/i")) )) {
 			$this->setError('email', 'EMAIL_HAS_INVALID_FORMAT');
@@ -158,7 +211,7 @@ class UserData {
 	private function validatePhone() {
 		$this->phone = $this->extractForm('phone');
 		if (empty($this->phone))
-			return;
+			$this->setError('phone', 'PHONE_EMPTY');
 		if (!filter_var($this->phone, FILTER_VALIDATE_REGEXP,
 				array("options"=>array("regexp" =>"/^\([0-9][0-9][0-9]\)\s[0-9][0-9][0-9]\s-\s[0-9][0-9][0-9][0-9]$/i")) )) {
 					$this->setError('phone', 'PHONE_HAS_INVALID_FORMAT');
@@ -168,7 +221,7 @@ class UserData {
 	private function validateURL() {
 		$this->url = $this->extractForm('url');
 		if (empty($this->url))
-			return;
+			$this->setError('url', 'URL_EMPTY');
 		if (!filter_var($this->url, FILTER_VALIDATE_REGEXP,
 				array("options"=>array("regexp" =>"/^(https:\/\/|http:\/\/)[0-9a-zA-Z\-\_\/]+\.com$/i")) )) {
 					$this->setError('url', 'URL_HAS_INVALID_FORMAT');

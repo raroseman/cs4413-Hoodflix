@@ -15,8 +15,10 @@ class HomeView {
 	<nav>
 	<a href="signup">Sign-up</a> |
 	<a href="login">Login</a> |
+	<a href="profile">Profile</a> |
 	<a href="reviews">Reviews</a> |
-	<a href="report">Report Misconduct</a>
+	<a href="report">Report Misconduct</a> |
+	<a href="tests.html">Tests</a>
 	</nav>
 	
 	<header>

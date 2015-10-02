@@ -11,17 +11,14 @@
 include_once("../models/User.class.php");
 ?>
 
-<h2>It should create a valid User object when all input is provided</h2>
+<h2>It should create an error when the last name is empty or has characters that are not alphanumeric or '-' and '_'</h2>
 <?php 
-$validTest = array("userName" => "krobbins");
+$validTest = array("lastName" => "rroseman");
 $s1 = new User($validTest);
 echo "The object is: $s1<br>";
-$test1 = (is_object($s1))?'':
+$test1 = (empty($s1->getErrors()))?'':
 'Failed:It should create a valid object when valid input is provided<br>';
 echo $test1;
-$test2 = (empty($s1->getErrors()))?'':
-'Failed:It not have errors when valid input is provided<br>';
-echo $test2;
 ?>
 
 <h2>It should extract the parameters that went in</h2>
