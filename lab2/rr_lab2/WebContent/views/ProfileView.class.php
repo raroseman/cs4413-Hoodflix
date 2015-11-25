@@ -23,17 +23,13 @@ class ProfileView {
 			   Age: 24<br>
 			   Gender: Male<br>
 			   Height: 6' 3"<br>
-			   Eyes: Brown<br>
-			   Address: 808 Thug Lane<br>
+			   Address: 123 Thug Lane<br>
 			   Neighborhood: Woodcrest<br>
 		</section>
 		
 		<section>	  
 			   <h3>fliX of Interest</h3>
 			   Action, Drama, Comedy<br>
-			   <h3>About Me</h3>
-			   Hi everyone! My name is Otis and while I'm not working on my rap career I love to take long strolls through the park
-			   and pursuing my true passion of baking!<br>
 		</section>
 		
 		<section>
@@ -42,7 +38,22 @@ class ProfileView {
 			   P: (410) 169-1337<br>
 			   FB: https://www.facebook.com/otis.jenkins<br><br>
 		</section>
-		<a href="home">Home</a>
+		<?php
+		$userData = array( "userName" => "Thugnificent",
+		               "picture" => "../images/thugnificent.jpg",
+		               "firstName" => "Otis",
+		               "lastName" => "Jenkins",
+		               "address" => "123 Thug Lane",
+		               "neighborhood" => "Woodcrest",
+		               "dateOfBirth" => "11/08/1989",
+		               "gender" => "male",
+		               "email" => "thugnasty@gmail.com",
+		               "phone" => "(210) 555 - 5555",
+		               "url" => "https://otis_jenkins/facebook.com"
+        );
+        print_r($userData);
+		?>
+		<br><br><a href="home">Home</a>
 	</body>
 	</html>
 <?php

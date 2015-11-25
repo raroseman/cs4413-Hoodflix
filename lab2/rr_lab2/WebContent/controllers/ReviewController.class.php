@@ -6,10 +6,10 @@ class ReviewController {
 			if ($reviewData->getErrorCount() == 0) {
 				HomeView::show();
 			} else {
-				ReviewView::show( $reviewData );
+				ReviewView::show( $reviewData );	
 			}
 		} else {
-			ReviewView::show( null );	
+			ReviewView::show( null );
 		}
 	}
 }

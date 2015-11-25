@@ -54,12 +54,16 @@ class ReviewData {
 	
 	public function getParameters() {
 		// Return data fields as an associative array
-		$paramArray = array("userName" => $this->userName); 
+		$paramArray = array("movieTitle" => $this->movieTitle,
+				            "userName" => $this->userName,
+				            "reviewedOn" => $this->reviewedOn,
+		                     "review" => $this->review
+		); 
 		return $paramArray;
 	}
 
 	public function __toString() {
-		$str = "User name: ".$this->userName;
+		$str = "Movie Title: ".$this->movieTitle." Reviewed by: ".$this->userName." Reviewed on: ".$this->reviewedOn." Review: ".$this->review;
 		return $str;
 	}
 	
@@ -95,7 +99,7 @@ class ReviewData {
 
 	private function validateUserName() {
 		// Username should only contain letters, numbers, dashes and underscore
-		$this->userName = $this->extractForm('userName');
+		$this->userName = $this->extractForm('reviewedBy');
 		if (empty($this->userName)) 
 			$this->setError('userName', 'USER_NAME_EMPTY');
 		elseif (!filter_var($this->userName, FILTER_VALIDATE_REGEXP,
