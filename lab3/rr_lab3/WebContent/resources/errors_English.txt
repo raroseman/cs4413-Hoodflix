@@ -1,0 +1,26 @@
+LAST_NAME_EMPTY Your last name can not be empty or only contain white space
+EMAIL_INVALID Your email is invalid
+LAST_NAME_HAS_INVALID_CHARS Your last name contains invalid characters
+USER_NAME_EMPTY Your user name can not be empty or only contain white space
+USER_NAME_HAS_INVALID_CHARS Your user name can only contain letters, numbers, dashes and underscores
+PASS_WORD_EMPTY Your password can not be empty or only contain white space
+PASS_WORD_TOO_SHORT Your password must be 8 characters long or more
+PROFILE_PICTURE_EMPTY You must upload a picture for your profile
+GENRES_NOT_SET You must select at least 1 genre of interest
+FIRST_NAME_EMPTY Your first name can not be empty or only contain white space
+FIRST_NAME_HAS_INVALID_CHARS Your first name contains invalid characters
+ADDRESS_EMPTY Your address can not be empty or only contain white space
+ADDRESS_HAS_INVALID_FORMAT Your address must contain numbers, followed by a whitespace, followed by letters
+NEIGHBORHOOD_NAME_EMPTY Your neighborhood can not be empty or only contain white space
+NEIGHBORHOOD_HAS_INVALID_CHARS Your neighborhood contains invalid characters
+GENDER_NOT_SET You must select a gender
+DATE_OF_BIRTH_NOT_SET You must select a date of birth
+EMAIL_EMPTY Your email can not be empty or only contain white space
+EMAIL_HAS_INVALID_FORMAT Your email must contain alphanumeric, followed by an @ sign, followed by letters, followed by .com
+PHONE_EMPTY Your phone number can not be empty or only contain white space
+PHONE_HAS_INVALID_FORMAT Your phone must be in the format (xxx) xxx - xxxx
+URL_EMPTY Your facebook URL can not be empty or only contain white space
+URL_HAS_INVALID_FORMAT Your url must contain http:// or https://, followed by alphanumeric, followed by .com
+MOVIE_TITLE_EMPTY Your movie title can not be empty or only contain white space
+REVIEWED_ON_EMPTY Your reviewed date can not be empty or only contain white space
+REVIEW_EMPTY Your review can not be empty or only contain white space

@@ -1,0 +1,26 @@
+LAST_NAME_EMPTY Su apellido no puede estar vacío o sólo contienen espacios en blanco
+EMAIL_INVALID Tu Correo Electrónico es Inválido
+LAST_NAME_HAS_INVALID_CHARS Su apellido contiene caracteres no válidos
+USER_NAME_EMPTY Tu nombre de usuario no puede estar vacío o sólo contienen espacios en blanco
+USER_NAME_HAS_INVALID_CHARS Tu nombre de usuario sólo puede contener letras, números , guiones y guiones bajos
+PASS_WORD_EMPTY La contraseña no puede estar vacío o sólo contienen espacios en blanco
+PASS_WORD_TOO_SHORT Su contraseña debe tener 8 caracteres o más
+PROFILE_PICTURE_EMPTY Usted debe subir una foto para tu perfil
+GENRES_NOT_SET Debe seleccionar al menos 1 género de interés
+FIRST_NAME_EMPTY Su nombre no puede estar vacío o sólo contienen espacios en blanco
+FIRST_NAME_HAS_INVALID_CHARS Su nombre contiene caracteres no válidos
+ADDRESS_EMPTY Su dirección no puede estar vacío o sólo contienen espacios en blanco
+ADDRESS_HAS_INVALID_FORMAT Su dirección debe contener números, seguido por un espacio en blanco , seguido de las letras
+NEIGHBORHOOD_NAME_EMPTY Su vecindario no puede estar vacío o sólo contienen espacios en blanco
+NEIGHBORHOOD_HAS_INVALID_CHARS Su vecindario contiene caracteres no válidos
+GENDER_NOT_SET Debe seleccionar un género
+DATE_OF_BIRTH_NOT_SET Debe seleccionar una fecha de nacimiento
+EMAIL_EMPTY Tu email no puede estar vacío o sólo contienen espacios en blanco
+EMAIL_HAS_INVALID_FORMAT Su correo electrónico debe contener alfanumérico, seguido por un signo @ , seguida por letras mayúsculas , seguido de .com
+PHONE_EMPTY Su número de teléfono no puede estar vacío o sólo contienen espacios en blanco
+PHONE_HAS_INVALID_FORMAT Su teléfono debe estar en el formato ( xxx) xxx - xxxx
+URL_EMPTY Su facebook URL no puede estar vacío o sólo contienen espacios en blanco
+URL_HAS_INVALID_FORMAT Su url debe contener http : // o https : // , seguido por alfanumérico, seguido de .com
+MOVIE_TITLE_EMPTY Su título de la película no puede estar vacío o sólo contienen espacios en blanco
+REVIEWED_ON_EMPTY Su fecha de revisión no puede estar vacío o sólo contienen espacios en blanco
+REVIEW_EMPTY Tu comentario no puede estar vacía o sólo contienen espacios en blanco
