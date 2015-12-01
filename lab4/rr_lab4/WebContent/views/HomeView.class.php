@@ -4,40 +4,54 @@ class HomeView {
 
   public static function show() {  
   	$_SESSION['styles'] = array('jumbotron.css');
-?>
-	<!DOCTYPE html>
-	<html>
-	<head>
-	<meta charset="UTF-8">
-	<title>Home</title>
-	</head>
-	<body>
-	<nav>
-	<a href="signup">Sign-up</a> |
-	<a href="login">Login</a> |
-	<a href="profile">Profile</a> |
-	<a href="reviews">Reviews</a> |
-	<a href="tests.html">Tests</a>
-	</nav>
-	
-	<header>
-	<img alt="h00dfliX Logo" src="images/h00dfliX_Logo.JPG">
-	</header>
-	
-	<aside>
-	<section>
-	<h2>h00dfliX</h2>
-	h00dflix is a free, safe alternative to torrent websites or paid streaming services that will build a stronger community by sharing your
-	movies with one another!
-	</section>
-	</aside><br>
-	
-	<footer>
-	Copyright © 2015 Ryan Roseman. All rights reserved.
-	</footer>
-	</body>
-	</html>
-<?php
-	}
+  	MasterView::showHeader();
+  	MasterView::showNavbar();
+  	HomeView::showDetails();
+  	$_SESSION['footertitle'] = "<h3>The footer goes here</h3>";
+  	MasterView::showHomeFooter();
+  	MasterView::showPageEnd();
+  }
+	public static function showDetails() { 
+      $base = $_SESSION['base'];
+      echo '<div class="jumbotron">';
+      echo '<div class="container">';
+      echo '<p><img alt="h00dfliX Logo" src="images/h00dfliX_Logo.JPG"></p>';
+      echo '<p>h00dflix is a free, safe alternative to torrent websites or paid streaming services that will build a stronger community by sharing your
+	        movies with one another!</p>';
+      echo '<p><a class="btn btn-primary btn-lg" href="/'.$base.'/information/show" role="button">Welcome to the Hood! &raquo;</a></p>';
+      echo '</div>';
+      echo '</div>';
+      
+      echo '<div class="container">';
+      echo '<div class="row">';
+      echo '<div class="col-md-3">';
+      echo '<h2>Sign-up</h2>';
+      echo '<p><img src = "/'.$base.'/images/document6.png"></p>';
+      echo '<p><a class="btn btn-default" href="/'.$base.'/signup" role="button">Welcome to the Hood! &raquo;</a></p>';
+      echo '</div>';
+      echo '<div class="col-md-3">';
+      echo '<h2>Login</h2>';
+      echo '<p><img src = "/'.$base.'/images/checkbox6.png"> </p>';
+      echo '<p><a class="btn btn-default" href="/'.$base.'/login" role="button">Post up &raquo;</a></p>';
+      echo '</div>';
+      echo '<div class="col-md-3">';
+      echo '<h2>Reviews</h2>';
+      echo '<p><img src = "/'.$base.'/images/social16.png"></p>';
+      echo '<p><a class="btn btn-default" href="/'.$base.'/reviews"  role="button">What did you think? &raquo;</a></p>';
+      echo '</div>';
+      echo '</div>';
+      echo '<hr>';
+	  echo '<h1>ClassBash: A site for student peer review</h1>';
+	  echo '<em>Peer reviewing is really nice.</em>';
+	  echo '<h3><a href="/'.$base.'/assignment/new">Would you like to do a new assignment?</a></h3>';
+	  echo '<h3><a href="/'.$base.'/review/new">Would you like to do a new review?</a></h3>';
+	  echo '<h3><a href="/'.$base.'/submission/new">Would you like to make a new submission</a></h3>'; 
+	  echo '<h3><a href="/'.$base.'/user/new">Would you like to create a new user?</a></h3>';  
+	  echo '<h3><a href="/'.$base.'/assignment/showall">Would you like to show all assignments</a></h3>';
+	  echo '<h3><a href="/'.$base.'/review/showall">Would you like to show all reviews</a></h3>';
+	  echo '<h3><a href="/'.$base.'/submission/showall">Would you like to show all submissions</a></h3>';
+	  echo '<h3><a href="/'.$base.'/user/showall">Would you like to show all users</a></h3>';
+	  echo '<h3><a href="/'.$base.'/tests.html">Would you like to run the tests?</a></h3>';  
+   }
 }		
 ?>
