@@ -24,3 +24,6 @@ URL_HAS_INVALID_FORMAT Your url must contain http:// or https://, followed by al
 MOVIE_TITLE_EMPTY Your movie title can not be empty or only contain white space
 REVIEWED_ON_EMPTY Your reviewed date can not be empty or only contain white space
 REVIEW_EMPTY Your review can not be empty or only contain white space
+RELEASE_DATE_EMPTY Your release date can not be empty or only contain white space
+RETURN_BY_EMPTY Your return by can not be empty or only contain white space
+COPY_AVAILABLE_EMPTY Your copy available by can not be empty or only contain white space

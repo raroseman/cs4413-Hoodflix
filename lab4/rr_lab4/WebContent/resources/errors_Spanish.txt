@@ -24,3 +24,6 @@ URL_HAS_INVALID_FORMAT Su url debe contener http : // o https : // , seguido por
 MOVIE_TITLE_EMPTY Su título de la película no puede estar vacío o sólo contienen espacios en blanco
 REVIEWED_ON_EMPTY Su fecha de revisión no puede estar vacío o sólo contienen espacios en blanco
 REVIEW_EMPTY Tu comentario no puede estar vacía o sólo contienen espacios en blanco
+RELEASE_DATE_EMPTY Su fecha de lanzamiento no puede estar vacío o sólo contienen espacios en blanco
+RETURN_BY_EMPTY Su retorno al no puede estar vacío o sólo contienen espacios en blanco
+COPY_AVAILABLE_EMPTY Su copia disponible no puede estar vacío o sólo contienen espacios en blanco

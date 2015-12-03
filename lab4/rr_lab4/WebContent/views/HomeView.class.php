@@ -49,6 +49,7 @@ class HomeView {
       echo '<hr>';
 	  echo '<h1>The premier website for media sharing</h1>';
 	  echo '<em>Get your FliX on.</em>';
+	  echo '<h3><a href="/'.$base.'/request">Would you like to request to borrow a movie?</a></h3>';
 	  echo '<h3><a href="/'.$base.'/review/showall">Would you like to show all reviews</a></h3>';
 	  echo '<h3><a href="/'.$base.'/user/showall">Would you like to show all users</a></h3>';
 	  echo '<h3><a href="/'.$base.'/tests.html">Would you like to run the tests?</a></h3>';  

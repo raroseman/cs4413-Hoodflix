@@ -40,6 +40,9 @@
 		case "review":
 			ReviewController::run();
 			break;
+		case "request":
+			RequestMovieController::run();
+			break;
 		default:
 			HomeView::show();
 	};
