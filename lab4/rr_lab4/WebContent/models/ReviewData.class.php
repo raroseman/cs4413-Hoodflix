@@ -36,6 +36,11 @@ class ReviewData {
 		return $this->errors;
 	}
 
+	public function setReviewId($id) {
+		// Set the value of the userId to $id
+		$this->reviewId = $id;
+	}
+	
 	public function getMovieTitle() {
 		return $this->movieTitle;
 	}
@@ -50,6 +55,10 @@ class ReviewData {
 	
 	public function getReview() {
 		return $this->review;
+	}
+	
+	public function getReviewId() {
+		return $this->reviewId;
 	}
 	
 	public function getParameters() {

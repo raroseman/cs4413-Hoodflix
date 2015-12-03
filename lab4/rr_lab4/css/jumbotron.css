@@ -1,8 +1,4 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
-.jumbotron {
-	background-color: #fff;
-}
-
 .navbar-brand {
 	font-color: #fff;	
 }
@@ -10,4 +6,8 @@
 body {
   padding-top: 500px;
   padding-bottom: 20px;
+}
+
+html body div.jumbotron {
+	background-color: #fff;
 }

@@ -18,6 +18,10 @@ class UserController {
 				$_SESSION['users'] = usersDB::getUsersBy();
 				$_SESSION['headertitle'] = "ClassBash Reviews";
 				$_SESSION['footertitle'] = "<h3>The footer goes here</h3>";
+				print_r($_SESSION['users']);
+				print_r($_SESSION['users']);
+				print_r($_SESSION['users']);
+				print_r($_SESSION['users']);
 				UserView::showall();
 				break;
 			case "update":

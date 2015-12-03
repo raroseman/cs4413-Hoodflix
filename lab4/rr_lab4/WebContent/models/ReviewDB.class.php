@@ -77,8 +77,8 @@ class ReviewDB {
 	
 	public static function getReviewsBy($type=null, $value=null) {
 		// Returns Review objects whose $type field has value $value
-		$reviewRows = ReviewsDB::getReviewRowSetsBy($type, $value);
-		return ReviewsDB::getReviewsArray($reviewRows);
+		$reviewRows = ReviewDB::getReviewRowSetsBy($type, $value);
+		return ReviewDB::getReviewsArray($reviewRows);
 	}
 	
 	public static function getReviewValues($rowSets, $column) {
