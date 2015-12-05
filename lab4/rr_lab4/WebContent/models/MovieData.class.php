@@ -57,8 +57,12 @@ class MovieData {
 		return $this->copyAvailable;
 	}
 	
-	public function getReviewId() {
-		return $this->reviewId;
+	public function makeCopyAvailable() {
+		return true;
+	}
+	
+	public function getMovieId() {
+		return $this->movieId;
 	}
 	
 	public function getParameters() {

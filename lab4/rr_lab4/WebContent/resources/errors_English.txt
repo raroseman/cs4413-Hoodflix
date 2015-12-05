@@ -27,3 +27,4 @@ REVIEW_EMPTY Your review can not be empty or only contain white space
 RELEASE_DATE_EMPTY Your release date can not be empty or only contain white space
 RETURN_BY_EMPTY Your return by can not be empty or only contain white space
 COPY_AVAILABLE_EMPTY Your copy available by can not be empty or only contain white space
+MOVIE_IDENTITY_INVALID Your movie identity is invalid

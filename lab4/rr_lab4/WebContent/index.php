@@ -43,6 +43,9 @@
 		case "request":
 			RequestMovieController::run();
 			break;
+		case "add":
+			AddMovieController::run();
+			break;
 		default:
 			HomeView::show();
 	};
