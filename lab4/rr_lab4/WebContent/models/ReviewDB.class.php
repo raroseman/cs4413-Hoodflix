@@ -3,34 +3,32 @@ class ReviewDB {
 	
 	public static function addReview($review) {
 		// Inserts $review into the Reviews table and returns reviewId
-		$query = "INSERT INTO Review (movieTitle, reviewedOn, review)
-		                      VALUES(:movieTitle, :reviewedOn :review)";
+		$query = "INSERT INTO Review (movieTitle, reviewedBy, reviewedOn, review)
+		                      VALUES(:movieTitle, :reviewedBy, :reviewedOn, :review)";
 		try {
 			$db = Database::getDB ();
 			if (is_null($review) || $review->getErrorCount() > 0)
 				return $review;
-			$users = UsersDB::getUsersBy('userName', $review->getUserName());
-			if (is_null($users) || empty($users)) {
-				$review->setError('reviewerName', 'REVIEWER_NAME_DOES_NOT_EXIST');
-				return $review;
-			}
+			//$users = UsersDB::getUsersBy('userName', $review->getUserName());
+			//if (is_null($users) || empty($users)) {
+			//	$review->setError('reviewerName', 'REVIEWER_NAME_DOES_NOT_EXIST');
+			//	return $review;
+			//}
 			$statement = $db->prepare ($query);
 			$statement->bindValue(":movieTitle", $review->getMovieTitle());
-			echo "made it here 1";
-			//$statement->bindValue(":reviewerId", $users[0]->getUserId());
-			echo "made it here 2";
+			$statement->bindValue(":reviewedBy", $review->getUserName());			
 			$statement->bindValue(":reviewedOn", $review->getReviewedOn());
-			echo "made it here 3";
 			$statement->bindValue(":review", $review->getReview());
-			echo "made it here 4";
+			print_r($review->getMovieTitle());
+			print_r($review->getUserName());
+			print_r($review->getReviewedOn());
+			print_r($review->getReview());
 			$statement->execute ();
-			echo "made it here 5";
 			$statement->closeCursor();
-			echo "made it here 6";
 			$returnId = $db->lastInsertId("reviewId");
-			echo "made it here 7";
 			$review->setReviewId($returnId);
 		} catch (Exception $e) { // Not permanent error handling
+			echo $e;
 			$review->setError('reviewId', 'REVIEW_IDENTITY_INVALID');
 		}
 		return $review;

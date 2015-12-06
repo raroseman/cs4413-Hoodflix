@@ -1,11 +1,10 @@
 <?php
-class ReviewController {
+class AddReviewController {
 	public static function run() {
 		$action = (array_key_exists('action', $_SESSION))?$_SESSION['action']:"";
 		$arguments = $_SESSION['arguments'];
 		switch ($action) {
 			case "new":
-				$reviewData = null;
 				if ($_SERVER ["REQUEST_METHOD"] == "POST") {
 					$reviewData = new ReviewData( $_POST );
 					$dbReviewData = ReviewDB::addReview($reviewData);

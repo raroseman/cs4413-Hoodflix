@@ -37,7 +37,7 @@ class HomeView {
       echo '<div class="col-md-3">';
       echo '<h2>Write a Review</h2>';
       echo '<p><img src = "/'.$base.'/images/write_review.png"></p>';
-      echo '<p><a class="btn btn-default" href="/'.$base.'/reviews/new"  role="button">What did you think? &raquo;</a></p>';
+      echo '<p><a class="btn btn-default" href="/'.$base.'/review/new"  role="button">What did you think? &raquo;</a></p>';
       echo '</div>';
       echo '<div class="col-md-3">';
       echo '<h2>Read Reviews</h2>';

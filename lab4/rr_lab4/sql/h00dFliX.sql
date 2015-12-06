@@ -25,12 +25,10 @@ DROP TABLE if EXISTS Review;
 CREATE TABLE Review (
   reviewId           int(11) NOT NULL AUTO_INCREMENT,
   movieTitle         varchar(255) COLLATE utf8_unicode_ci,
-  reviewerId         int(11) NOT NULL COLLATE utf8_unicode_ci,
-  reviewedOn         TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  review             varchar (4096) NOT NULL COLLATE utf8_unicode_ci,
-  PRIMARY KEY (reviewId),
-  FOREIGN KEY (reviewerId) REFERENCES Users(userId),
-  CONSTRAINT rid_subid UNIQUE (reviewerId)
+  reviewedBy         varchar(255) COLLATE utf8_unicode_ci,
+  reviewedOn         varchar(255) COLLATE utf8_unicode_ci,
+  review             varchar (4096) COLLATE utf8_unicode_ci,
+  PRIMARY KEY (reviewId)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE if EXISTS Movies;

@@ -29,7 +29,7 @@
 			LoginController::run();
 			break;
 		case "reviews":
-			ReviewController::run();
+			//ReviewController::run();
 			break;
 		case "profile":
 			ProfileView::show();
@@ -38,7 +38,7 @@
 			UserController::run();
 			break;
 		case "review":
-			ReviewController::run();
+			AddReviewController::run();
 			break;
 		case "request":
 			RequestMovieController::run();
