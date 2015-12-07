@@ -256,7 +256,7 @@ class UserData {
 		if (empty($this->neighborhood))
 			$this->setError('neighborhood', 'NEIGHBORHOOD_NAME_EMPTY');
 		elseif (!filter_var($this->neighborhood, FILTER_VALIDATE_REGEXP,
-				array("options"=>array("regexp" =>"/^([a-zA-Z0-9\-\_])+$/i")) )) {
+				array("options"=>array("regexp" =>"/^([a-zA-Z0-9\-\_ ])+$/i")) )) {
 			$this->setError('neighborhood', 'NEIGHBORHOOD_HAS_INVALID_CHARS');
 		}
 	}
