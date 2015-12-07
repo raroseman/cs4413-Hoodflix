@@ -29,7 +29,7 @@
 			LoginController::run();
 			break;
 		case "reviews":
-			//ReviewController::run();
+			AddReviewController::run();
 			break;
 		case "profile":
 			ProfileView::show();
@@ -45,6 +45,9 @@
 			break;
 		case "add":
 			AddMovieController::run();
+			break;
+		case "catalog":
+			ShowMoviesController::run();
 			break;
 		default:
 			HomeView::show();

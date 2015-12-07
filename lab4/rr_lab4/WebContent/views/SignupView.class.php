@@ -3,7 +3,11 @@
 class SignupView {
 
   public static function show( $user, $userData ) {  
-		
+  	MasterView::showHeader();
+  	MasterView::showNavbar();
+  	echo "<br>";
+  	echo "<br>";
+  	echo "<br>";
 ?>
 
 <!DOCTYPE html>

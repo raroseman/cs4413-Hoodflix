@@ -3,7 +3,11 @@
 class AddMovieView {
 
   public static function show( $movieData ) {  
-		
+  	MasterView::showHeader();
+  	MasterView::showNavbar();
+  	echo "<br>";
+  	echo "<br>";
+  	echo "<br>";
 ?>
 
 	<!DOCTYPE html>

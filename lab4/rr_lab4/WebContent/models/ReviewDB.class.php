@@ -9,7 +9,7 @@ class ReviewDB {
 			$db = Database::getDB ();
 			if (is_null($review) || $review->getErrorCount() > 0)
 				return $review;
-			//$users = UsersDB::getUsersBy('userName', $review->getUserName());
+			//userss = UsersDB::getUsersBy('userName', $review->getUserName());
 			//if (is_null($users) || empty($users)) {
 			//	$review->setError('reviewerName', 'REVIEWER_NAME_DOES_NOT_EXIST');
 			//	return $review;
@@ -19,10 +19,6 @@ class ReviewDB {
 			$statement->bindValue(":reviewedBy", $review->getUserName());			
 			$statement->bindValue(":reviewedOn", $review->getReviewedOn());
 			$statement->bindValue(":review", $review->getReview());
-			print_r($review->getMovieTitle());
-			print_r($review->getUserName());
-			print_r($review->getReviewedOn());
-			print_r($review->getReview());
 			$statement->execute ();
 			$statement->closeCursor();
 			$returnId = $db->lastInsertId("reviewId");
@@ -35,15 +31,38 @@ class ReviewDB {
 	}
 	
 	public static function getReviewRowSetsBy($type = null, $value = null) {
+		// Returns the rows of Users whose $type field has value $value
+		$allowedTypes = ["reviewId", "movieTitle", "reviewedBy", "reviewedOn", "review"];
+		$reviewRowSets = array();
+		try {
+			$db = Database::getDB ();
+			$query = "SELECT reviewId, movieTitle, reviewedBy, reviewedOn, review FROM Review";
+			if (!is_null($type)) {
+				if (!in_array($type, $allowedTypes))
+					throw new PDOException("$type not an allowed search criterion for Review");
+				$query = $query. " WHERE ($type = :$type)";
+				$statement = $db->prepare($query);
+				$statement->bindParam(":$type", $value);
+			} else
+				$statement = $db->prepare($query);
+			$statement->execute ();
+			$reviewRowSets = $statement->fetchAll(PDO::FETCH_ASSOC);
+			$statement->closeCursor ();
+		} catch (Exception $e) { // Not permanent error handling
+			echo "<p>Error getting user rows by $type: " . $e->getMessage () . "</p>";
+		}
+		return $reviewRowSets;
+	}
+	
+	/*public static function getReviewRowSetsBy($type = null, $value = null) {
 		// Returns the rows of Reviews whose $type field has value $value
-		$allowedTypes = ["reviewId", "reviewerName", "submissionId", "score", "userId"];
+		$allowedTypes = ["reviewId", "movieTitle", "reviewedBy", "reviewedOn", "review"];
 		$typeAlias = array("reviewerName" => "Users.userName");
 		$reviewRowSets = array();
 		try {
 			$db = Database::getDB ();
-			$query = "SELECT Reviews.reviewId, Reviews.submissionId, 
-					  Reviews.score, Reviews.reviewerId, Users.userName as reviewerName, Reviews.review
-	   		          FROM Reviews LEFT JOIN Users ON Reviews.reviewerId = Users.userId";
+			$query = "SELECT Review.reviewId, Review.movieTitle, 
+					  Review.reviewedBy, Review.reviewedOn, Review.review";
 			if (!is_null($type)) {
 			    if (!in_array($type, $allowedTypes))
 					throw new PDOException("$type not an allowed search criterion for Reviews");
@@ -60,13 +79,13 @@ class ReviewDB {
 		
 		}
 		return $reviewRowSets;
-	}
+	}*/
 
 	public static function getReviewsArray($rowSets) {
 		// Return an array of Review objects extracted from $rowSets
 		$reviews = array();
 		foreach ($rowSets as $reviewRow ) {
-			$review = new Review($reviewRow);
+			$review = new ReviewData($reviewRow);
 			$review->setReviewId($reviewRow['reviewId']);
 			array_push ($reviews, $review);
 		}

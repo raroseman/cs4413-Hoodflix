@@ -8,7 +8,7 @@ class HomeView {
   	MasterView::showHeader();
   	MasterView::showNavbar();
   	HomeView::showDetails();
-  	$_SESSION['footertitle'] = "<h3>The footer goes here</h3>";
+  	$_SESSION['footertitle'] = "<h3>Get your FliX on</h3>";
   	MasterView::showHomeFooter();
   	MasterView::showPageEnd();
   }
@@ -25,14 +25,14 @@ class HomeView {
       echo '<div class="container">';
       echo '<div class="row">';
       echo '<div class="col-md-3">';
-      echo '<h2>Sign Up</h2>';
-      echo '<p><img src = "/'.$base.'/images/signup.jpg"></p>';
-      echo '<p><a class="btn btn-default" href="/'.$base.'/signup" role="button">Welcome to the Hood! &raquo;</a></p>';
+      echo '<h2>Request a Movie</h2>';
+      echo '<p><img src = "/'.$base.'/images/request_movie.jpg"></p>';
+      echo '<p><a class="btn btn-default" href="/'.$base.'/add" role="button">Get your FliX on! &raquo;</a></p>';
       echo '</div>';
       echo '<div class="col-md-3">';
-      echo '<h2>Login</h2>';
-      echo '<p><img src = "/'.$base.'/images/login.png"> </p>';
-      echo '<p><a class="btn btn-default" href="/'.$base.'/login" role="button">Welcome back! &raquo;</a></p>';
+      echo '<h2>View Catalog</h2>';
+      echo '<p><img src = "/'.$base.'/images/movie.png"> </p>';
+      echo '<p><a class="btn btn-default" href="/'.$base.'/catalog/showall" role="button">Check out our selection! &raquo;</a></p>';
       echo '</div>';
       echo '<div class="col-md-3">';
       echo '<h2>Write a Review</h2>';
@@ -42,16 +42,14 @@ class HomeView {
       echo '<div class="col-md-3">';
       echo '<h2>Read Reviews</h2>';
       echo '<p><img src = "/'.$base.'/images/read_review.jpg"></p>';
-      echo '<p><a class="btn btn-default" href="/'.$base.'/reviews/new"  role="button">See what others thought! &raquo;</a></p>';
+      echo '<p><a class="btn btn-default" href="/'.$base.'/reviews/showall"  role="button">See what others thought! &raquo;</a></p>';
       echo '</div>';
       echo '</div>';
       
       echo '<hr>';
 	  echo '<h1>The premier website for media sharing</h1>';
-	  echo '<em>Get your FliX on.</em>';
-	  echo '<h3><a href="/'.$base.'/add">Would you like to add a movie?</a></h3>';
+	  echo '<em>Welcome to the hood</em>';
 	  echo '<h3><a href="/'.$base.'/request">Would you like to request to borrow a movie?</a></h3>';
-	  echo '<h3><a href="/'.$base.'/review/showall">Would you like to show all reviews</a></h3>';
 	  echo '<h3><a href="/'.$base.'/user/showall">Would you like to show all users</a></h3>';
 	  echo '<h3><a href="/'.$base.'/tests.html">Would you like to run the tests?</a></h3>';  
    }

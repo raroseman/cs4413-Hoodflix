@@ -3,7 +3,11 @@
 class LoginView {
 
   public static function show( $user ) {  
-		
+  	MasterView::showHeader();
+  	MasterView::showNavbar();
+  	echo "<br>";
+  	echo "<br>";
+  	echo "<br>";
 ?>
 
 	<!DOCTYPE html>

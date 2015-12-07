@@ -11,3 +11,12 @@ body {
 html body div.jumbotron {
 	background-color: #fff;
 }
+
+h3 {
+   background:#ffab62;
+   width:100%;
+   height:100px;
+   position:absolute;
+   bottom:0;
+   left:0;	
+}

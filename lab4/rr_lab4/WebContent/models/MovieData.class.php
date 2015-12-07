@@ -61,6 +61,10 @@ class MovieData {
 		return true;
 	}
 	
+	public function makeCopyUnavailable() {
+		return false;
+	}
+	
 	public function getMovieId() {
 		return $this->movieId;
 	}
@@ -135,8 +139,8 @@ class MovieData {
 	
 	private function validateReturnBy() {
 		$this->returnBy = $this->extractForm('returnBy');
-		if (empty($this->returnBy))
-			$this->setError('returnBy', 'RETURN_BY_EMPTY');
+		//if (empty($this->returnBy))
+		//	$this->setError('returnBy', 'RETURN_BY_EMPTY');
 	}
 	
 	private function validateCopyAvailable() {

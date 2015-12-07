@@ -65,7 +65,7 @@ class MasterView {
 	    			      class="form-control" name ="password">';
 	    	echo '</div>';
 	    	echo '<button type="submit" class="btn btn-success">Sign in</button>';
-	    	echo '<a class="btn btn-primary" href="/'.$base.'/user/new" role="button">Register</a></p>';
+	    	echo '<a class="btn btn-primary" href="/'.$base.'/signup" role="button">Register</a></p>';
 	    	echo '</form>';
 
     	}

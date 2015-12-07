@@ -7,7 +7,7 @@ class UserData {
 	private $formInput;
 	private $userName;
 	private $picture;
-	private $genres;
+	private $genres = array();
 	private $action;
 	private $horror;
 	private $comedy;
@@ -215,6 +215,7 @@ class UserData {
 		$this->romance = $this->extractForm('romance');
 		$this->family = $this->extractForm('family');
 		$this->drama = $this->extractForm('drama');
+		array_push($this->genres, $this->action, $this->horror, $this->comedy, $this->romance, $this->family, $this->drama);
 		if ($this->action == null && $this->horror == null && $this->comedy == null &&
 				$this->romance == null && $this->family == null && $this->drama == null)
 			$this->setError('genres', 'GENRES_NOT_SET');

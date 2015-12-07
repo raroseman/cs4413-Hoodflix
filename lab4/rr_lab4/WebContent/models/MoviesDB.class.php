@@ -14,6 +14,10 @@ class MoviesDB {
 			//	$movie->setError('movieTitle', 'MOVIE_TITLE_DOES_NOT_EXIST');
 			//	return $movie;
 			//}
+			echo "<br>";
+			echo "<br>";
+			echo "<br>";
+			echo "<h1>h00dFliX Reviews</h1>";
 			$statement = $db->prepare ($query);
 			$statement->bindValue(":movieTitle", $movie->getMovieTitle());					
 			$statement->bindValue(":releaseDate", $movie->getReleaseDate());
@@ -30,9 +34,33 @@ class MoviesDB {
 		return $movie;
 	}
 	
-	public static function getReviewRowSetsBy($type = null, $value = null) {
+	public static function getMoviesRowSetsBy($type = null, $value = null) {
+		// Returns the rows of Users whose $type field has value $value
+		$allowedTypes = ["movieId", "movieTitle", "releaseDate", "returnBy", "copyAvailable"];
+		$moviesRowSets = array();
+		try {
+			$db = Database::getDB ();
+			$query = "SELECT movieId, movieTitle, releaseDate, returnBy, copyAvailable FROM Movies";
+			if (!is_null($type)) {
+				if (!in_array($type, $allowedTypes))
+					throw new PDOException("$type not an allowed search criterion for Movies");
+				$query = $query. " WHERE ($type = :$type)";
+				$statement = $db->prepare($query);
+				$statement->bindParam(":$type", $value);
+			} else
+				$statement = $db->prepare($query);
+			$statement->execute ();
+			$moviesRowSets = $statement->fetchAll(PDO::FETCH_ASSOC);
+			$statement->closeCursor ();
+		} catch (Exception $e) { // Not permanent error handling
+			echo "<p>Error getting user rows by $type: " . $e->getMessage () . "</p>";
+		}
+		return $moviesRowSets;
+	}
+	
+	/*public static function getMoviesRowSetsBy($type = null, $value = null) {
 		// Returns the rows of Reviews whose $type field has value $value
-		$allowedTypes = ["reviewId", "reviewerName", "submissionId", "score", "userId"];
+		$allowedTypes = ["movieId", "movieTitle", "releaseDate", "returnBy", "copyAvailable"];
 		$typeAlias = array("reviewerName" => "Users.userName");
 		$reviewRowSets = array();
 		try {
@@ -56,23 +84,23 @@ class MoviesDB {
 		
 		}
 		return $reviewRowSets;
-	}
+	}*/
 
-	public static function getReviewsArray($rowSets) {
+	public static function getMoviesArray($rowSets) {
 		// Return an array of Review objects extracted from $rowSets
-		$reviews = array();
-		foreach ($rowSets as $reviewRow ) {
-			$review = new Review($reviewRow);
-			$review->setReviewId($reviewRow['reviewId']);
-			array_push ($reviews, $review);
+		$movies = array();
+		foreach ($rowSets as $moviesRow ) {
+			$movie = new MovieData($moviesRow);
+			$movie->setMovieId($moviesRow['movieId']);
+			array_push ($movies, $movie);
 		}
-		return $reviews;
+		return $movies;
 	}
 	
 	public static function getMoviesBy($type=null, $value=null) {
 		// Returns Review objects whose $type field has value $value
-		$movieRows = MoviesDB::getReviewRowSetsBy($type, $value);
-		return MoviesDB::getReviewsArray($movieRows);
+		$movieRows = MoviesDB::getMoviesRowSetsBy($type, $value);
+		return MoviesDB::getMoviesArray($movieRows);
 	}
 	
 	public static function getReviewValues($rowSets, $column) {
@@ -91,35 +119,56 @@ class MoviesDB {
 		return ReviewsDB::getReviewValues($reviewRows, $column);
 	}
 	
-	public static function updateReview($review) {
+	public static function updateMovies($movie) {
 		// Update a review 
 		try {
+			$_SESSION['movie'] = $movie;
 			$db = Database::getDB ();
-			if (is_null($review) || $review->getErrorCount() > 0)
-				return $review;
-	  	    $checkReview = ReviewsDB::getReviewsBy('reviewId', $review->getReviewId());
-		    if (empty($checkReview))
-		    	$review->setError('reviewId', 'REVIEW_DOES_NOT_EXIST');	
-		    elseif ($checkReview[0]->getSubmissionId() != $review->getSubmissionId())
-		        $review->setError('reviewId', 'REVIEW_HAS_WRONG_SUBMISSION_ID');
-		    elseif ($checkReview[0]->getreviewerName() != $review->getReviewerName())
-		        $review->setError('reviewId', 'REVIEWER_NAME_DOES_NOT_MATCH');
-		    if ($review->getErrorCount() > 0)
-		    	return $review;
+			if (is_null($movie) || $movie->getErrorCount() > 0)
+				return $movie;
+	  	    $checkMovie = MoviesDB::getMoviesBy('movieId', $movie->getMovieId());
+	  	    echo "<br>";
+	  	    echo "<br>";
+	  	    echo "<br>";
+	  	    echo "<br>";
+	  	    echo "<br>";
+	  	    echo "<br>";
+	  	    echo "<br>";
+	  	    echo "<br>";
+	  	    echo "<br>";
+	  	    echo "<br>";
+	  	    echo "<br>";
+	  	    echo "<br>";
+	  	    echo "<br>";
+	  	    echo "<br>";
+	  	    echo "<br>";
+	  	    print_r($checkMovie);
+		    if (empty($checkMovie))
+		    	$movie->setError('movieId', 'MOVIE_DOES_NOT_EXIST');	
+		    /*elseif ($checkMovie[0]->getSubmissionId() != $movie->getSubmissionId())
+		        $movie->setError('movieId', 'REVIEW_HAS_WRONG_SUBMISSION_ID');
+		    elseif ($checkMovie[0]->getreviewerName() != $movie->getReviewerName())
+		        $movie->setError('movieId', 'REVIEWER_NAME_DOES_NOT_MATCH');*/
+		    if ($movie->getErrorCount() > 0)
+		    	echo "<br>";
+		    	echo "<br>";
+		    	echo "<br>";
+		    	print_r($movie);
+		    	return $movie;
 		    
-	    	$query = "UPDATE Reviews SET review = :review, score = :score
-	    			                 WHERE reviewId = :reviewId";
+	    	$query = "UPDATE Movies SET copyAvailable = :copyAvailable
+	    			                 WHERE movieTitle = :movieTitle";
 		
 			$statement = $db->prepare ($query);
-			$statement->bindValue(":review", $review->getReview());
-			$statement->bindValue(":score", $review->getScore());
-			$statement->bindValue(":reviewId", $review->getReviewId());
+			//$statement->bindValue(":movieId", $movie->getMovieId());
+			$statement->bindValue(":movieTitle", $movie->getMovieTitle());
+			$statement->bindValue(":copyAvailable", $movie->makeCopyUnavailable());
 			$statement->execute ();
 			$statement->closeCursor();
 		} catch (Exception $e) { // Not permanent error handling
-			$review->setError('reviewId', 'REVIEW_COULD_NOT_BE_UPDATED');
+			$movie->setError('movieId', 'MOVIE_COULD_NOT_BE_UPDATED');
 		}
-		return $review;
+		return $movie;
 	}
 }
 ?>

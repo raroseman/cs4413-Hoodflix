@@ -10,9 +10,10 @@ class SignupController {
 			//$_POST["userId"] = $user->getUserId();
 			$dbUserData = UsersDB::addUser($user, $userData);
 			if ($user->getErrorCount() == 0 && $userData->getErrorCount() == 0) {
-				HomeView::show();
+				ProfileView::show($user, $userData);
 			} else {
 				SignupView::show( $user, $userData );
+				
 			}
 		} else {
 			SignupView::show( null, null );	

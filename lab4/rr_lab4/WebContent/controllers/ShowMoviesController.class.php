@@ -1,5 +1,5 @@
 <?php
-class UserController {
+class ShowMoviesController {
 
 	public static function run() {
 		// Perform actions related to a user
@@ -15,10 +15,10 @@ class UserController {
 				self::show();
 				break;
 			case  "showall":
-				$_SESSION['users'] = usersDB::getUsersBy();
-				$_SESSION['headertitle'] = "h00dFliX Users";
+				$_SESSION['movies'] = moviesDB::getMoviesBy();
+				$_SESSION['headertitle'] = "h00dFliX Movies";
 				$_SESSION['footertitle'] = "<h3>The footer goes here</h3>";
-				UserView::showall();
+				ShowMoviesView::showall();
 				break;
 			case "update":
 				echo "Update";

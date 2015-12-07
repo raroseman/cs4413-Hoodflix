@@ -3,7 +3,11 @@
 class ReviewView {
 
   public static function show( $reviewData ) {  
-		
+  	MasterView::showHeader();
+  	MasterView::showNavbar();
+  	echo "<br>";
+  	echo "<br>";
+  	echo "<br>";
 ?>
 
 	<!DOCTYPE html>
@@ -15,7 +19,7 @@ class ReviewView {
 	<body>
 		<form method="post">
 			<section>
-				<h1>fliX Reviews</h1>
+				<h1>FliX Reviews</h1>
 					Movie Title <input type="text" name="movieTitle" <?php if (!is_null($reviewData)) { echo 'value = "'. $reviewData->getMovieTitle() .'"'; }?>> <?php if (!is_null($reviewData)) {echo $reviewData->getError('movieTitle');}?><br><br>	
 					Reviewed By <input type="text" name="reviewedBy"<?php if (!is_null($reviewData)) { echo 'value = "'. $reviewData->getUserName() .'"'; }?>> <?php if (!is_null($reviewData)) {echo $reviewData->getError('userName');}?><br><br>
 					Reviewed On <input type="text" name="reviewedOn" <?php if (!is_null($reviewData)) { echo 'value = "'. $reviewData->getReviewedOn() .'"'; }?> tabindex="16"> <?php if (!is_null($reviewData)) {echo $reviewData->getError('reviewedOn');}?><br><br>

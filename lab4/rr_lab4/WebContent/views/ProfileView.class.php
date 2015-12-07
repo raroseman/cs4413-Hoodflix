@@ -2,8 +2,12 @@
 
 class ProfileView {
 
-  public static function show() {  
-		
+  public static function show( $user, $userData ) {  
+  	MasterView::showHeader();
+  	MasterView::showNavbar();
+  	echo "<br>";
+  	echo "<br>";
+  	echo "<br>";
 ?>
 	<!DOCTYPE html>
 	<html>
@@ -13,47 +17,33 @@ class ProfileView {
 	</head>
 	<body>
 		<section>
-			<h1>Welcome, Thugnificent!</h1>
-			<img alt="Thugnificent" src="images/thugnificent.jpg" style="">	
+			<h1>Welcome, <?php echo $user->getUserName(); ?>!</h1>
+			<img alt="Profile Picture" src="images/<?php $userData->getPicture()?>" style="">	
 		</section>
 		
 		<section>
 			<h2>Personal Details</h2>
-			   Name: Otis Jenkins<br>
-			   Age: 24<br>
-			   Gender: Male<br>
-			   Height: 6' 3"<br>
-			   Address: 123 Thug Lane<br>
-			   Neighborhood: Woodcrest<br>
-		</section>
-		
-		<section>	  
-			   <h3>fliX of Interest</h3>
-			   Action, Drama, Comedy<br>
+			   Name: <?php echo $userData->getFirstName(); echo ' '; echo $userData->getLastName(); ?><br>
+			   <span style=text-decoration:underline;>Genres of Interest</span><br>
+			   Action: <?php echo $userData->getGenres()[0];?><br>
+			   Horror: <?php echo $userData->getGenres()[1];?><br>
+			   Comedy: <?php echo $userData->getGenres()[2];?><br>
+			   Romance: <?php echo $userData->getGenres()[3];?><br>
+			   Family: <?php echo $userData->getGenres()[4];?><br>
+			   Drama: <?php echo $userData->getGenres()[5];?><br>
+			   Address: <?php echo $userData->getAddress();?><br>
+			   Neighborhood: <?php echo $userData->getNeighborhood();?><br>
+			   Date of Birth: <?php echo $userData->getDateOfBirth();?><br>
+			   Gender: <?php echo $userData->getGender();?><br>		
 		</section>
 		
 		<section>
 			   <h2>Contact Information</h2>
-			   E: mrthugnasty@gmail.com<br>
-			   P: (410) 169-1337<br>
-			   FB: https://www.facebook.com/otis.jenkins<br><br>
+			   Email: <?php echo $userData->getEmail();?><br>
+			   Phone: <?php echo $userData->getPhone();?><br>
+			   URL: <?php echo $userData->getURL();?><br><br>
 		</section>
-		<?php
-		$userData = array( "userName" => "Thugnificent",
-		               "picture" => "../images/thugnificent.jpg",
-		               "firstName" => "Otis",
-		               "lastName" => "Jenkins",
-		               "address" => "123 Thug Lane",
-		               "neighborhood" => "Woodcrest",
-		               "dateOfBirth" => "11/08/1989",
-		               "gender" => "male",
-		               "email" => "thugnasty@gmail.com",
-		               "phone" => "(210) 555 - 5555",
-		               "url" => "https://otis_jenkins/facebook.com"
-        );
-        print_r($userData);
-		?>
-		<br><br><a href="home">Home</a>
+		
 	</body>
 	</html>
 <?php
