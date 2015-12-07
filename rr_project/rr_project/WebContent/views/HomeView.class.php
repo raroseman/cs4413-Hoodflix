@@ -27,7 +27,7 @@ class HomeView {
       echo '<div class="col-md-3">';
       echo '<h2>Request a Movie</h2>';
       echo '<p><img src = "/'.$base.'/images/request_movie.jpg"></p>';
-      echo '<p><a class="btn btn-default" href="/'.$base.'/add" role="button">Get your FliX on! &raquo;</a></p>';
+      echo '<p><a class="btn btn-default" href="/'.$base.'/request" role="button">Get your FliX on! &raquo;</a></p>';
       echo '</div>';
       echo '<div class="col-md-3">';
       echo '<h2>View Catalog</h2>';
@@ -49,7 +49,7 @@ class HomeView {
       echo '<hr>';
 	  echo '<h1>The premier website for media sharing</h1>';
 	  echo '<em>Welcome to the hood</em>';
-	  echo '<h3><a href="/'.$base.'/request">Would you like to request to borrow a movie?</a></h3>';
+	  echo '<h3><a href="/'.$base.'/add">Would you like to add a movie to the catalog?</a></h3>';
 	  echo '<h3><a href="/'.$base.'/user/showall">Would you like to show all users</a></h3>';
 	  echo '<h3><a href="/'.$base.'/tests.html">Would you like to run the tests?</a></h3>';  
    }
