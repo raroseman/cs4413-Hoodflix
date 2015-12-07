@@ -1,0 +1,35 @@
+<?php
+
+class LoginView {
+
+  public static function show( $user ) {  
+  	MasterView::showHeader();
+  	MasterView::showNavbar();
+  	echo "<br>";
+  	echo "<br>";
+  	echo "<br>";
+?>
+
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	</head>
+	<body>
+		<form action="login" method="post">
+			<section>
+				<h1>Login</h1>
+					Username <input type="text" name="userName" <?php if (!is_null($user)) { echo 'value = "'. $user->getUserName() .'"'; }?>> <?php if (!is_null($user)) {echo $user->getError('userName');}?><br><br>	
+					Password <input type="password" name="password" <?php if (!is_null($user)) { echo 'value = "'. $user->getPassword() .'"'; }?>> <?php if (!is_null($user)) {echo $user->getError('password');}?><br><br>
+			</section>
+				
+			<input type="submit" name="submit"><br>
+		</form>
+	</body>
+	</html>
+
+<?php
+	}
+}		
+?>
