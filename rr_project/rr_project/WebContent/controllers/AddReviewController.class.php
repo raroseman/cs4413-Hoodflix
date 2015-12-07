@@ -7,8 +7,8 @@ class AddReviewController {
 			case "new":
 				if ($_SERVER ["REQUEST_METHOD"] == "POST") {
 					$reviewData = new ReviewData( $_POST );
-					$dbReviewData = ReviewDB::addReview($reviewData);
 					if ($reviewData->getErrorCount() == 0) {
+						$dbReviewData = ReviewDB::addReview($reviewData);
 						HomeView::show();
 					} else {
 						ReviewView::show( $reviewData );

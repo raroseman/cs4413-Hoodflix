@@ -7,9 +7,9 @@ class SignupController {
 			$user = new User ( $_POST );
 			//$dbUser = UsersDB::addUser($user);
 			$userData = new UserData( $_POST );
-			//$_POST["userId"] = $user->getUserId();
-			$dbUserData = UsersDB::addUser($user, $userData);
+			//$_POST["userId"] = $user->getUserId();		
 			if ($user->getErrorCount() == 0 && $userData->getErrorCount() == 0) {
+				$dbUserData = UsersDB::addUser($user, $userData);
 				ProfileView::show($user, $userData);
 			} else {
 				SignupView::show( $user, $userData );
